@@ -14,6 +14,20 @@ class StopAction(Enum):
     HOLD = 'hold'
 
 
+class Snatch3rRobot(object):
+    def __init__(self, leftwheelport=ev3.OUTPUT_B, rightwheelport=ev3.OUTPUT_C):
+        self.left_wheel = Wheel(leftwheelport)
+        self.right_wheel = Wheel(rightwheelport)
+
+    def go(self, leftwheelDCP=100, rightwheelDCP=100):
+        self.left_wheel.start_spinning(leftwheelDCP)
+        self.right_wheel.start_spinning(rightwheelDCP)
+
+    def stop(self, stop_action=StopAction.BRAKE):
+        self.left_wheel.stop_spinning('brake')
+        self.right_wheel.stop_spinning('brake')
+
+
 class Wheel(object):
     def __init__(self, port, default_duty_cycle_percent=100,
                  default_stop_action=StopAction.BRAKE.value):
