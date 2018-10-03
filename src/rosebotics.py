@@ -37,6 +37,7 @@ class Snatch3rRobot(object):
         self.stop()
 
     def turn(self, direction, seconds, speed=100):
+        '''Turns the robot in the given (direction) for the given (seconds) with an optional (speed).'''
         if direction == 'right':
             self.left_wheel.start_spinning(speed)
             time.sleep(seconds)
