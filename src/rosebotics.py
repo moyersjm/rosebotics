@@ -29,8 +29,9 @@ class Snatch3rRobot(object):
         self.right_wheel.stop_spinning(stop_action)
 
     def move_forward(self, n):
-        self.left_wheel.start_spinning(100)
-        self.right_wheel.start_spinning(100)
+        self.go(100, 100)
+        time.sleep(n)
+        self.stop()
 
     def spin(self, n=5, direction='right'):
         if direction == 'right':

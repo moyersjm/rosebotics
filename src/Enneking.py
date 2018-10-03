@@ -15,7 +15,7 @@ def main():
 def run_tests():
     """ Runs various tests. """
     run_test_go_stop()
-
+    run_test_move_forward(10)
 
 def run_test_go_stop():
     """ Tests the   go   and   stop   Snatch3rRobot methods. """
@@ -39,5 +39,8 @@ def run_test_go_stop():
     print(robot.right_wheel.get_degrees_spun())
     print(robot.left_wheel.get_degrees_spun())
 
+
+def run_test_move_forward(n):
+    rb.Snatch3rRobot.move_forward(n)
 
 main()
