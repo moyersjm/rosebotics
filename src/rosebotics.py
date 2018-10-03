@@ -36,6 +36,15 @@ class Snatch3rRobot(object):
         time.sleep(n)
         self.stop()
 
+    def turn(self, direction, seconds, speed=100):
+        if direction == 'right':
+            self.left_wheel.start_spinning(speed)
+            time.sleep(seconds)
+            self.stop()
+        elif direction == 'left':
+            self.left_wheel.start_spinning(speed)
+            time.sleep(seconds)
+            self.stop()
 
 class Wheel(object):
     def __init__(self, port, default_duty_cycle_percent=100,
